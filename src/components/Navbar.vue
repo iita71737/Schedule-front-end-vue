@@ -17,7 +17,11 @@
     <div id="navbarSupportedContent" class="navbar-collapse collapse">
       <div class="ml-auto d-flex align-items-center">
         <!-- is user is admin -->
-        <router-link v-if="currentUser.isAdmin" to="#" class="text-white mr-3">
+        <router-link
+          v-if="currentUser.isAdmin"
+          to="schedules"
+          class="text-white mr-3"
+        >
           管理員後台
         </router-link>
 
@@ -47,9 +51,9 @@ const dummyUser = {
     name: "管理者",
     email: "root@example.com",
     image: "https://i.pravatar.cc/300",
-    isAdmin: true,
+    isAdmin: true
   },
-  isAuthenticated: true,
+  isAuthenticated: true
 };
 
 export default {
@@ -61,9 +65,9 @@ export default {
         name: "",
         email: "",
         image: "",
-        isAdmin: false,
+        isAdmin: false
       },
-      isAuthenticated: false,
+      isAuthenticated: false
     };
   },
   created() {
@@ -73,10 +77,10 @@ export default {
     fetchUser() {
       this.currentUser = {
         ...this.currentUser,
-        ...dummyUser.currentUser,
+        ...dummyUser.currentUser
       };
       this.isAuthenticated = dummyUser.isAuthenticated;
-    },
-  },
+    }
+  }
 };
 </script>

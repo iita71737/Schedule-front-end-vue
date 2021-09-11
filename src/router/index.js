@@ -3,15 +3,16 @@ import VueRouter from "vue-router";
 import NotFound from "../views/NotFound.vue";
 import SignIn from "../views/SignIn.vue";
 import Schedules from '../views/Schedules.vue'
+import Home from '../views/Home.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-      path: '/',
-      name: 'root',
-      redirect: '/schedules'
-    },
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
   {
     path: "/signin",
     name: "sign-in",
@@ -23,10 +24,10 @@ const routes = [
     component: () => import("../views/SignUp.vue"),
   },
   {
-      path: '/schedules',
-      name: 'schedules',
-      component: Schedules
-    },
+    path: '/schedules',
+    name: 'schedules',
+    component: Schedules
+  },
   {
     path: "*",
     name: "not-found",
