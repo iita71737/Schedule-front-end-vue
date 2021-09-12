@@ -1,13 +1,39 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-
-    <div v-for="todo in todos" :key="todo.id">
-      <h5>{{ todo.name }}</h5>
+  <div>
+    <div>
+      <h1>{{ msg }}</h1>
     </div>
+    <router-link to="/new">
+      <button>
+        Create New Todo
+      </button>
+    </router-link>
 
-    <button type="button" name="button" v-on:click="getmsg">get</button>
-    <button type="button" name="button" v-on:click="postmsg">post</button>
+    <div>
+      <ul>
+        <li v-for="todo in todos" :key="todo.id" class="mr-3">
+          {{ todo.name }}
+          <router-link
+            :to="{ name: 'detailTodo', params: { id: todo._id } }"
+            class="mr-2"
+            >detail</router-link
+          >
+          <router-link
+            :to="{ name: 'editTodo', params: { id: todo._id } }"
+            class="mr-2"
+            >edit</router-link
+          >
+          <form
+            method="POST"
+            style="display: inline;"
+            @submit.stop.prevent="deleteTodo(todo._id)"
+          >
+            <button type="submit">delete</button>
+          </form>
+        </li>
+      </ul>
+      <button type="button" name="button" v-on:click="getmsg">get</button>
+    </div>
   </div>
 </template>
 
@@ -31,10 +57,15 @@ export default {
         this.todos = response.todos;
       });
     },
-    postmsg() {
-      this.$axios.post("/api/favorite", { name: "money" }).then(res => {
-        console.log("post res = ", res);
-      });
+    deleteTodo(todoId) {
+      //console.log(todoId);
+      this.$axios
+        .post(`http://localhost:3000/todos/${todoId}/delete`, { todoId })
+        .then(res => {
+          const response = res.data;
+          console.log(response);
+          this.getmsg();
+        });
     }
   }
 };

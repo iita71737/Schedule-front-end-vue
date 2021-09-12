@@ -24,6 +24,21 @@ const routes = [
     component: () => import("../views/SignUp.vue"),
   },
   {
+    path: '/new',
+    name: 'new',
+    component: () => import('../views/NewTodo.vue')
+  },
+  {
+    path: '/detailTodo',
+    name: 'detailTodo',
+    component: () => import('../views/detailTodo.vue')
+  },
+  {
+    path: '/editTodo',
+    name: 'editTodo',
+    component: () => import('../views/editTodo.vue')
+  },
+  {
     path: '/schedules',
     name: 'schedules',
     component: Schedules
