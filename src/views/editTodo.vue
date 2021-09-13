@@ -1,6 +1,12 @@
 <template>
   <div class="edit-todo">
     <form method="POST" @submit.stop.prevent="editTodo">
+      <input
+        type="checkbox"
+        name="isDone"
+        :class="{ checked: this.getdata.isDone }"
+        v-model="getdata.isDone"
+      />
       <input type="text" placeholder="name" name="name" v-model="text" />
       <button type="submit">Save</button>
       <a href="/">back</a>
@@ -41,7 +47,7 @@ export default {
       this.$axios({
         method: "post",
         url: `http://localhost:3000/todos/${this.todoId}/edit`,
-        data: { name: this.text }
+        data: { name: this.text, isDone: this.getdata.isDone }
       }).then(res => {
         console.log("success", res);
         self.$router.push("/");

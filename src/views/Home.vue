@@ -12,6 +12,8 @@
     <div>
       <ul>
         <li v-for="todo in todos" :key="todo.id" class="mr-3">
+          <input type="checkbox" name="isDone" v-model="todo.isDone" disabled />
+
           {{ todo.name }}
           <router-link
             :to="{ name: 'detailTodo', params: { id: todo._id } }"

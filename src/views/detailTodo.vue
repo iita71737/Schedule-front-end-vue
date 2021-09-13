@@ -1,5 +1,11 @@
 <template>
   <div v-if="getdata" class="detail-todo">
+    <input
+      type="checkbox"
+      name="isDone"
+      v-model="getdata.todo.isDone"
+      disabled
+    />
     <p>{{ getdata.todo.name }}</p>
     <a href="/">back</a>
   </div>
