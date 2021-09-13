@@ -1,23 +1,24 @@
 # schedule-front-end-vue
-
-## Project setup
+```
+git clone and cd this project folder
+and run following step to demo
+```
+## front-end setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### run front-end serve
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### backend setup
 ```
-npm run build
+cd backend
 ```
-
-### Lints and fixes files
 ```
-npm run lint
+npm run dev
 ```
 
 ### Customize configuration

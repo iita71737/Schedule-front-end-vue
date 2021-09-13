@@ -1,8 +1,20 @@
 <template>
-  <form method="POST" class="create-new-btn" @submit.stop.prevent="postmsg">
-    <input type="text" placeholder="name" name="name" v-model="text" />
-    <button type="submit">Create</button>
-  </form>
+  <div class="container new-todo">
+    <form method="POST" @submit.stop.prevent="postmsg">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          placeholder="name"
+          name="name"
+          v-model="text"
+          class="form-control"
+        />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>

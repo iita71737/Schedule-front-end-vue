@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import './assets/application.css'
 import axios from 'axios'
 // 把 axios 註冊為原型
 Vue.prototype.$axios = axios

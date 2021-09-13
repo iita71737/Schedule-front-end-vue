@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <router-link class="navbar-brand" to="/"> 排課系統 </router-link>
+    <router-link class="navbar-brand" to="/"> Todo List </router-link>
 
     <button
       class="navbar-toggler"
